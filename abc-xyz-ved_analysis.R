@@ -81,15 +81,15 @@ final_inventory_report <- inventory_analysis %>%
 
 head(final_inventory_report)
 
-# Summarize data
+# 5. Summarize data
 matrix_summary <- inventory_analysis %>%
   group_by(abc_category, ved_category, xyz_category) %>%
   summarise(item_count = n(), .groups = 'drop')
 
-# Combine into a list where with Excel sheet names
+# 6. Combine into a list where with Excel sheet names
 my_sheets <- list("Summary" = matrix_summary, "Analysis" = final_inventory_report)
 
-# Export the list
+# 7. Export the report
 write.xlsx(my_sheets,"G:/My Drive/Major_Project/Main/ABC-XYZ_Analysis.xlsx")
 
 
